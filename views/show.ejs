@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%=file.filename%></h1>
+    <table>
+      <thead>
+        <th>Stundent Usn</th>
+        <th>Stundent Name</th>
+        <th>IA 1</th>
+        <th>IA 2</th>
+        <th>IA 3</th>
+        <th>Total</th>
+        <th>Delete</th>
+        <th>Edit</th>
+      </thead>
+      <% for(let i of file.csvData){%>
+      <tr style="border: 1px solid black">
+        <td><%= i.studentUsn %></td>
+        <td><%= i.studentName %></td>
+        <td><%= i.IA1 %></td>
+        <td><%= i.IA2 %></td>
+        <td><%= i.IA3 %></td>
+        <td><%= i.Total %></td>
+        <td>
+          <form
+            action="/file/<%=file.id%>/data/<%= i.id %>?_method=DELETE "
+            method="POST"
+          >
+            <button>Delete</button>
+          </form>
+        </td>
+        <td>
+          <a href="/file/<%=file.id%>/edit/<%= i.id %> ">Edit</a>
+        </td>
+      </tr>
+      <%} %>
+    </table>
+
+    <button><a href="/file/<%= file.id %>/add "> Add</a></button>
+    <form action="/file/<%= file.id %>?_method=DELETE " method="POST">
+      <button>Delete</button>
+    </form>
+  </body>
+</html>

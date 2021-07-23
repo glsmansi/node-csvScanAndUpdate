@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add</title>
+  </head>
+  <body>
+    <form action="/file/<%= file.id %>/add?_method=PUT" method="POST">
+      <label for="usn">Student Usn</label>
+      <input type="text" id="usn" name="csvData[studentUsn]" /><br />
+      <label for="name">Student Name</label>
+      <input type="text" id="name" name="csvData[studentName]" /><br />
+      <label for="ia1">IA-1</label>
+      <input type="number" id="ia1" name="csvData[IA1]" /><br />
+      <label for="ia1">IA-2</label>
+      <input type="number" id="ia2" name="csvData[IA2]" /><br />
+      <label for="ia1">IA-3</label>
+      <input type="number" id="ia3" name="csvData[IA3]" /><br />
+      <label for="total">Total</label>
+      <input type="text" id="total" name="csvData[Total]" /><br />
+      <button>Add</button>
+    </form>
+  </body>
+</html>
